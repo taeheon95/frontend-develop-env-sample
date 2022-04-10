@@ -34,7 +34,8 @@ module.exports = {
     new webpack.BannerPlugin({
       banner: `
         Build Date: ${new Date().toLocaleString()}
-        Commit Version: ${childProcess.execSync("")}
+        Commit Version: ${childProcess.execSync("git rev-parse --short HEAD")}
+        Author: ${childProcess.execSync("git config user.name")}
       `,
     }),
   ],
